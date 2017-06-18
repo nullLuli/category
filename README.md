@@ -1,2 +1,3 @@
 # category
-方便实用的类别
+功能：
+1.auto copy
