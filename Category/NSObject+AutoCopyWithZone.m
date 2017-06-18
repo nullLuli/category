@@ -7,7 +7,7 @@
 //
 
 #import "NSObject+AutoCopyWithZone.h"
-#import <objc/runtime.h>
+#import <objc/message.h>
 
 @implementation NSObject (AutoCopyWithZone)
 
