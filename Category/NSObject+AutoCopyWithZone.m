@@ -23,10 +23,25 @@
             
             NSString *key = [NSString stringWithUTF8String:ivar_getName(ivars[i])];
             
-            id value = [self valueForKey:key];
+            id value = object_getIvar(self, ivars[i]);
             
-            [result setValue:value forKey:key];
+            id valueCopy;
             
+            if ([value isKindOfClass:[NSArray class]]) {
+                valueCopy = [[[value class] alloc]initWithArray:value copyItems:YES];
+            }
+            else if ([value isKindOfClass:[NSDictionary class]]) {
+                valueCopy = [[[value class] alloc]initWithDictionary:value copyItems:YES];
+            }
+            else
+            {
+                valueCopy = [value copy];
+            }
+            
+            
+            [result setValue:valueCopy forKey:key];
+            
+            NSLog(@"copy %@ in %@",key,NSStringFromClass(c));
         }
         c = [c superclass];
         free(ivars);

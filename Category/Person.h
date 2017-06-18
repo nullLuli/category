@@ -14,4 +14,5 @@
 
 @property(nonatomic,strong)NSString * name;
 
+@property(nonatomic,strong)NSDictionary<NSNumber*,Person*>* friendDict;
 @end

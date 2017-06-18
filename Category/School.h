@@ -13,5 +13,7 @@
 
 @property(nonatomic,strong)NSArray<Person*>* grade1;
 
+@property(nonatomic,strong)Person * person;
+
 @property(nonatomic,strong)NSString * schoolName;
 @end
